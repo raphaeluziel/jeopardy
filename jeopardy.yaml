@@ -1,0 +1,91 @@
+---
+
+Countries:
+  What country has the largest area?:
+    - China
+    - India
+    - United States
+    - Russia:
+  What country is the most populous?:
+    - China:
+    - India
+    - United States
+    - Russia
+  Which country has the greatest consumption of energy?:
+    - India
+    - Russia
+    - United States
+    - China:
+  Which country is the least dependant on fossil fuels:
+    - Iceland:
+    - Tajikistan
+    - Sweden
+    - France
+
+Animals:
+  Which land animal is the fastest?:
+    - Bear
+    - Alligator
+    - Cheeta:
+    - Dog
+  Which is the largest land animal?:
+    - Giraffe
+    - Rhinoceros
+    - Bison
+    - Elephant:
+  Which is the smallest mammal?:
+    - American shrew mole
+    - Pygmy possum:
+    - Etruscan shrew
+    - Human
+  Which of these animals can survive the longest without food?:
+    - Scorpion
+    - Humpback whale
+    - Crocodile:
+    - Emperor penguin
+
+History:
+  What was the name of the research ship Charles Darwin traveled with?:
+    - The Beagle:
+    - The Nina
+    - The Darwin
+    - The Researcher
+  In which year was John F. Kennedy assassinated?:
+    - 1961
+    - 1962
+    - 1963:
+    - 1964
+  Greenland was a colony of which country until 1981?:
+    - Denmark:
+    - United States
+    - Russia
+    - Norway
+  Which famous battle took place on Sunday, June 18th, 1815?:
+    - The Battle of Gettysburg
+    - The Battle of Marathon
+    - The Battle of the Alamo
+    - The Battle of Waterloo:
+
+Astronomy:
+  Which planet is nearest to the Sun?:
+    - Mercury:
+    - Venus
+    - Earth
+    - Saturn
+  Which is the largest planet in the solar system?:
+    - Earth
+    - Saturn
+    - Venus
+    - Jupiter:
+  Which planet of our solar system has the hottest surface temperatures?:
+    - Earth
+    - Mercury
+    - Venus:
+    - Jupiter
+  The planets make up what percentage of the mass in our solar system?:
+    - 0.0135%
+    - 0.135%:
+    - 1.35%
+    - 13.5%
+
+...
