@@ -59,6 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (questions_answered.includes(data[i].id)){
           question.options[i+1].disabled = true;
         }
+
+
+
+
+
       }
       question.style.display = 'block';
     })

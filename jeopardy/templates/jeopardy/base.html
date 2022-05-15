@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'jeopardy/css/jeopardy.css' %}">
+{% endblock styles %}
+
 {% block javascript %}
   <script src="{% static 'jeopardy/js/jeopardy.js' %}"></script>
-{% endblock %}
+{% endblock javascript %}

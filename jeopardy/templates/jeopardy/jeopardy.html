@@ -8,6 +8,56 @@
   {% if user.is_authenticated %}
     <div style="text-align: right;"><a href="{% url 'logout' %}">Logout</a></div>
   {% endif %}
+  <br>
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      {% for category in categories %}
+
+      <div class="col">
+        <div class="category">
+          {{ category }}
+        </div>
+
+        {% for question in questions %}
+          {% if question.category == category %}
+            <div class="question">
+              {{ question.question }}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+
+
+  <br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <p>Welcome to Jeopardy, {{ user.first_name }}.  To begin, select a category.</p>

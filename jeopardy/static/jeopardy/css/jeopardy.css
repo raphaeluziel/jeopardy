@@ -1,0 +1,27 @@
+body{
+  background-color: #943126;
+}
+
+.category{
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  text-align: center;
+  height: 2em;
+  background-color: #faf0e6;
+  border: 2px solid #228b22;
+  margin: 4px;
+  font-weight: bold;
+}
+
+.question{
+  display: flex;
+  align-items:center;
+  text-align: center;
+  height: 10em;
+  background-color: #c1cdcd;
+  border: 2px solid #008080;
+  margin: 4px;
+  padding: 8px;
+  font-size: small;
+}

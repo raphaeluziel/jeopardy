@@ -9,7 +9,6 @@ import json
 
 @login_required
 def get_questions(request, category_pk):
-    print(category_pk)
     questions = Question.objects.filter(category=category_pk)
     return JsonResponse(list(questions.values()), safe=False)
 
@@ -24,6 +23,7 @@ def get_answers(request):
 
 @login_required
 def jeopardy(request):
+    
     player, created = Player.objects.get_or_create(player=request.user)
 
     categories = Category.objects.all()
