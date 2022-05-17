@@ -24,4 +24,10 @@ body{
   margin: 4px;
   padding: 8px;
   font-size: small;
+  transition-property: scale;
+  transition-duration: 1s;
+}
+
+.question:focus{
+  scale: 3;
 }

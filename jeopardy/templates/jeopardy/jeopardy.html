@@ -26,9 +26,9 @@
 
         {% for question in questions %}
           {% if question.category == category %}
-            <div class="question">
+            <button class="question">
               {{ question.question }}
-            </div>
+            </button>
           {% endif %}
         {% endfor %}
 
