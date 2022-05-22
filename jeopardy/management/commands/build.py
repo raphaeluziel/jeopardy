@@ -23,15 +23,17 @@ class Command(BaseCommand):
                 yaml_data = None
 
 
-        #print(json.dumps(yaml_data, indent=2))
+        print(json.dumps(yaml_data, indent=2))
 
         for category in yaml_data:
             print("category: " + category)
             cat, created = Category.objects.get_or_create(category=category)
             for question in yaml_data[category]:
+                value = yaml_data[category][question]['value']
                 print("  question: " + question)
-                quest, created = Question.objects.get_or_create(question=question, category=cat)
-                for answer in yaml_data[category][question]:
+                print("     value: " + str(value))
+                quest, created = Question.objects.get_or_create(question=question, category=cat, value=value)
+                for answer in yaml_data[category][question]['answers']:
                     if (type(answer) is dict):
                         correct_answer_string = str(next(iter(answer)))
                         correct_answer, created = Answer.objects.get_or_create(answer=correct_answer_string, question=quest)

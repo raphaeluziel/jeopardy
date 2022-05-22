@@ -22,8 +22,40 @@ def get_answers(request):
 
 
 @login_required
+def ajax(request):
+
+    player, created = Player.objects.get_or_create(player=request.user)
+
+    categories = Category.objects.all()
+    questions = Question.objects.all()
+    answers = Answer.objects.all()
+
+    form = JeopardyForm(request.POST or None)
+
+    if form.is_valid():
+        print("Form is valid")
+        question = get_object_or_404(Question, pk=request.POST.get('question_pk'))
+        answer = get_object_or_404(Answer, pk=request.POST.get('answer_pk'))
+        player.questions_answered.add(question)
+        if answer == question.correct_answer:
+            player.score = player.score + 1
+            player.save()
+        return redirect('jeopardy:ajax')
+
+    context = {
+        'player': player,
+        'categories': categories,
+        'questions': questions,
+        'answers': answers,
+        'form': form,
+    }
+
+    return render (request, 'jeopardy/ajax.html', context)
+
+
+@login_required
 def jeopardy(request):
-    
+
     player, created = Player.objects.get_or_create(player=request.user)
 
     categories = Category.objects.all()

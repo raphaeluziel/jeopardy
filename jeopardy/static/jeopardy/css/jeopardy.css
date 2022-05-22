@@ -8,6 +8,7 @@ body{
   justify-content:center;
   text-align: center;
   height: 2em;
+  width: 100%;
   background-color: #faf0e6;
   border: 2px solid #228b22;
   margin: 4px;
@@ -17,17 +18,32 @@ body{
 .question{
   display: flex;
   align-items:center;
+  justify-content:center;
   text-align: center;
-  height: 10em;
+  height: 8em;
+  width: 100%;
   background-color: #c1cdcd;
   border: 2px solid #008080;
   margin: 4px;
   padding: 8px;
-  font-size: small;
-  transition-property: scale;
-  transition-duration: 1s;
+  font-size: large;
 }
 
-.question:focus{
-  scale: 3;
+.jeopardy{
+  display: grid;
+  background-color: lightgreen;
+}
+
+#ggg{
+  background-color: pink;
+  cursor: pointer;
+  font-size: 200%;
+}
+
+.hhh{
+  background-color: lightblue;
+}
+
+.hhh, #ggg {
+  grid-area: 1 / 1;
 }

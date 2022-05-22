@@ -20,6 +20,7 @@ class Category(models.Model):
 
 class Question(models.Model):
     question = models.CharField(max_length=200)
+    value = models.PositiveSmallIntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     correct_answer = models.OneToOneField('Answer', on_delete=models.CASCADE, related_name='correct_answer', null=True)
 
