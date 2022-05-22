@@ -9,7 +9,7 @@
 
 {% block content %}
 
-  <h1>Jeopardy</h1>
+  <h1 style="color: white;">Jeopardy</h1>
 
   {% if user.is_authenticated %}
     <div style="text-align: left; margin: 10px; background-color: yellow; width:5em; text-align:center;"><a href="{% url 'logout' %}">Logout</a></div>
@@ -20,7 +20,7 @@
 
     <div class="jeopardy">
 
-      <div class="row hhh">
+      <div class="row" id="board">
 
         {% for category in categories %}
 
@@ -32,7 +32,7 @@
 
           {% for question in questions %}
             {% if question.category == category %}
-              <button class="question" id="question{{ question.pk }}" data-question="{{ question.question }}">
+              <button class="value" id="question{{ question.pk }}" data-question="{{ question.question }}" data-pk="{{ question.pk }}">
                 {{ question.value }}
               </button>
             {% endif %}
@@ -44,7 +44,14 @@
 
       </div>
 
-      <div id="ggg">
+      <div id="show_question">
+        <div id="question"></div>
+        <div id="answers"></div>
+        <form id="jeopardy_form" method="post">
+          {% csrf_token %}
+          <input id="question_pk" type="hidden" name="question_pk" value="">
+          <button id="submit_btn">Submit</button>
+        </form>
 
       </div>
 

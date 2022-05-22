@@ -62,25 +62,15 @@ def jeopardy(request):
     questions = Question.objects.all()
     answers = Answer.objects.all()
 
-    form = JeopardyForm(request.POST or None)
-
-    if form.is_valid():
-        print("Form is valid")
-        question = get_object_or_404(Question, pk=request.POST.get('question_pk'))
-        answer = get_object_or_404(Answer, pk=request.POST.get('answer_pk'))
-        player.questions_answered.add(question)
-        if answer == question.correct_answer:
-            player.score = player.score + 1
-            player.save()
+    if request.method == 'POST':
+        print(request.POST)
         return redirect('jeopardy:jeopardy')
-
 
     context = {
         'player': player,
         'categories': categories,
         'questions': questions,
         'answers': answers,
-        'form': form,
     }
 
     return render (request, 'jeopardy/jeopardy.html', context)
