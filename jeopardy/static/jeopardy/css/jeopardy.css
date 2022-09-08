@@ -1,46 +1,50 @@
 body{
-  background-color: #943126;
+    background-color: #943126;
 }
 
-.category{
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  text-align: center;
-  height: 2em;
-  width: 100%;
-  background-color: #faf0e6;
-  border: 2px solid #228b22;
-  margin: 4px;
-  font-weight: bold;
+.answers {
+    margin: 8px;
 }
 
-.value{
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  text-align: center;
-  height: 6em;
-  width: 100%;
-  background-color: #c1cdcd;
-  border: 2px solid #008080;
-  margin: 4px;
-  padding: 8px;
-  font-size: large;
+.category {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    text-align: center;
+    height: 2em;
+    width: 100%;
+    background-color: #faf0e6;
+    border: 2px solid #228b22;
+    margin: 4px;
+    font-weight: bold;
 }
 
-.jeopardy{
-  display: grid;
-  background-color: lightgreen;
+.value {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    text-align: center;
+    height: 6em;
+    width: 100%;
+    background-color: #c1cdcd;
+    border: 2px solid #008080;
+    margin: 4px;
+    padding: 8px;
+    font-size: large;
 }
 
-#show_question{
-  background-color: pink;
-  font-size: 200%;
-  grid-area: 1 / 1;
+.jeopardy {
+    display: grid;
+    background-color: lightgreen;
 }
 
-#board{
-  background-color: lightblue;
-  grid-area: 1 / 1;
+#show_question {
+    background-color: pink;
+    font-size: 200%;
+    grid-area: 1 / 1;
+}
+
+#board {
+    background-color: lightblue;
+    grid-area: 1 / 1;
 }

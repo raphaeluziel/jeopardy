@@ -5,8 +5,8 @@
 2.  `cd` into the root `jeopardy` directory
 3.  Install a virtual environment, activate it, then install requirements in it:  
 ```
-python3 -m venv dynaenv
-source jeopardyenv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 4.  You can use the following to login:

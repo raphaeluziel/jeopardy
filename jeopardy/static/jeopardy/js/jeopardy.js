@@ -26,27 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
   ///////////////////////////////////////// SHOW QUESTION SELECTED/////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  show = document.getElementById('show_question');
-  question = document.getElementById('question');
-  answers = document.getElementById('answers');
-  question_pk_input = document.getElementById('question_pk');
-  submit_btn = document.getElementById('submit_btn');
+  let form = document.getElementById('jeopardy-form');
+  let show = document.getElementById('show_question');
+  let question = document.getElementById('question');
+  let answers = document.getElementById('answers');
 
   show.style.display = 'none';
 
-  submit_btn.addEventListener('click', e => {
-    document.getElementById('jeopardy_form').submit();
-  });
-
-
   values = document.querySelectorAll('.value');
   values.forEach(val => {
-    val.addEventListener('click', e => {
-      get_answers(e);
-      question.innerHTML = e.target.dataset.question;
-      question_pk_input.value = e.target.dataset.pk;
-      show.style.display = 'block';
-    });
+      val.addEventListener('click', e => {
+          get_answers(e);
+          let txt = document.createTextNode(e.target.dataset.question);
+          question.appendChild(txt);
+          show.style.display = 'block';
+      });
   });
 
 
@@ -57,29 +51,40 @@ document.addEventListener('DOMContentLoaded', () => {
   //////////////////////////////////////////// GET ANSWERS ////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   async function get_answers(e){
-    console.log(e.target)
-    let data = { question_pk: e.target.dataset.pk };
+      console.log(e.target)
+      let data = { question_pk: e.target.dataset.pk };
 
-    fetch('/get_answers', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrftoken,
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success: ', data);
-      for (i = 0; i < data.length; i++){
-        answers.innerHTML = data[i].answer;
-      }
-    })
-    .catch((error) => {
-      console.error('Error: ', error);
-    });
+      fetch('/get_answers', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken,
+          },
+          body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log('Success: ', data);
+
+          for (i = 0; i < data.length; i++){
+              let div = document.createElement('div');
+              div.className = 'answers d-grid gap-2 col-6 mx-auto';
+              let btn = document.createElement('button');
+              btn.className = 'btn btn-lg btn-primary';
+              btn.type = 'submit';
+              btn.name = 'answer_pk';
+              btn.value = data[i].id;
+              let txt = document.createTextNode(data[i].answer);
+              btn.appendChild(txt);
+              div.appendChild(btn);
+              answers.appendChild(div);
+          }
+
+      })
+      .catch((error) => {
+          console.error('Error: ', error);
+      });
   }
-
 
 
 

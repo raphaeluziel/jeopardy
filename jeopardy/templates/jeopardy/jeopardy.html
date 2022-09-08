@@ -32,7 +32,9 @@
 
           {% for question in questions %}
             {% if question.category == category %}
-              <button class="value" id="question{{ question.pk }}" data-question="{{ question.question }}" data-pk="{{ question.pk }}">
+              <button class="value" id="question{{ question.pk }}"
+                      data-question="{{ question.question }}"
+                      data-pk="{{ question.pk }}">
                 {{ question.value }}
               </button>
             {% endif %}
@@ -45,15 +47,18 @@
       </div>
 
       <div id="show_question">
-        <div id="question"></div>
-        <div id="answers"></div>
-        <form id="jeopardy_form" method="post">
+
+        <form id="jeopardy-form" method="post">
           {% csrf_token %}
-          <input id="question_pk" type="hidden" name="question_pk" value="">
-          <button id="submit_btn">Submit</button>
+
+          <div id="question"></div>
+          <div id="answers"></div>
+
         </form>
 
       </div>
+
+      <p>Was Last Question: {{ correct }}</p>
 
     </div>
 
